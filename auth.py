@@ -34,12 +34,15 @@ headers = {
 
 print("headers", headers)
 
+domain = "openapi.lixiaoskb.com"
+uri = "/services/v4/rest/enterprise/entBaseInfo"
+url = f"https://{domain}{uri}"
+params = {"keywords": "广州千洛贸易有限公司"}
+
 response = requests.get(
-    "https://openapi.lixiaoskb.com/services/v4/rest/enterprise/entEcommerceInfo?keywords=广州千洛贸易有限公司",
+    url,
+    params=params,
     headers=headers,
 )
 
 print(response.text)
-
-
-# `https://openapi.lixiaoskb.com/services/v4/rest/enterprise/entEcommerceInfo?keywords=广州千洛贸易有限公司
