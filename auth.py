@@ -45,4 +45,4 @@ response = requests.get(
     headers=headers,
 )
 
-print(response.text)
+print(response.json())
