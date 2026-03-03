@@ -18,6 +18,8 @@ print("api_secret:", api_secret)
 
 times = time.mktime(datetime.datetime.now().timetuple())
 timestamp = str(int(round(times * 1000)))
+
+
 sign = base64.b64encode(
     hmac.new(
         bytes(api_secret, "UTF-8"), bytes(timestamp, "UTF-8"), hashlib.sha1
@@ -30,9 +32,14 @@ headers = {
     "X-AK-TS": timestamp,
 }
 
+print("headers", headers)
+
 response = requests.get(
-    "https://openapi.lixiaoskb.com/services/v4/rest/enterprise/searchEntByName?keyword=" + quote("阿里巴巴"),
+    "https://openapi.lixiaoskb.com/services/v4/rest/enterprise/entEcommerceInfo?keywords=广州千洛贸易有限公司",
     headers=headers,
 )
 
 print(response.text)
+
+
+# `https://openapi.lixiaoskb.com/services/v4/rest/enterprise/entEcommerceInfo?keywords=广州千洛贸易有限公司
