@@ -35,7 +35,8 @@ headers = {
 print("headers", headers)
 
 domain = "openapi.lixiaoskb.com"
-uri = "/services/v4/rest/enterprise/entBaseInfo"
+# uri = "/services/v4/rest/enterprise/entBaseInfo"
+uri = "/services/v4/rest/enterprise/entEcommerceInfo"
 url = f"https://{domain}{uri}"
 params = {"keywords": "广州千洛贸易有限公司"}
 
