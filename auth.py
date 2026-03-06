@@ -4,7 +4,7 @@ import time, datetime
 import hmac
 import hashlib
 import base64
-from urllib.parse import quote
+import json
 import os
 from dotenv import load_dotenv
 
@@ -36,7 +36,8 @@ print("headers", headers)
 
 domain = "openapi.lixiaoskb.com"
 # uri = "/services/v4/rest/enterprise/entBaseInfo"
-uri = "/services/v4/rest/enterprise/entEcommerceInfo"
+# uri = "/services/v4/rest/enterprise/entEcommerceInfo"
+uri = "/services/v4/rest/enterprise/historicalEntEcommerceInfo"
 url = f"https://{domain}{uri}"
 params = {"keywords": "广州千洛贸易有限公司"}
 
@@ -46,4 +47,6 @@ response = requests.get(
     headers=headers,
 )
 
-print(response.json())
+# print(response.json())
+data = response.json()  # 先解析为 Python 对象
+print(json.dumps(data, indent=2, ensure_ascii=False))  # 重新序列化为标准 JSON
